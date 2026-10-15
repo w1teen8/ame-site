@@ -8,6 +8,8 @@
 // oldPrice:   set when the piece is discounted.
 // soldOut:    no quick action, ribbon over the photo.
 
+import { asset } from '../lib/asset'
+
 const sizes = (list, missing = []) => list.map((s) => [s, !missing.includes(s)])
 const XXS_L = ['XXS', 'XS', 'S', 'M', 'L']
 const XXS_M = ['XXS', 'XS', 'S', 'M']
@@ -19,8 +21,8 @@ const item = (id, name, price, extra = {}) => ({
   name,
   href: `/product/${id}`,
   price,
-  image: `/products/${id}.jpg`,
-  ...(extra.detail === false ? {} : { hoverImage: `/products/${id}-detail.jpg` }),
+  image: asset(`products/${id}.jpg`),
+  ...(extra.detail === false ? {} : { hoverImage: asset(`products/${id}-detail.jpg`) }),
   ...extra,
 })
 

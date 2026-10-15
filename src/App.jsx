@@ -11,14 +11,15 @@ import CartDrawer from './components/cart/CartDrawer'
 import { allProducts, corsetEdit, productsById } from './data/products'
 import { dict } from './lib/i18n'
 import { REDUCED_QUERY } from './lib/useMedia'
+import { asset } from './lib/asset'
 
 const REGION_KEY = 'ame-region'
 const WISHLIST_KEY = 'ame-wishlist'
 const INTRO_KEY = 'ame-intro-seen'
 const CART_KEY = 'ame-cart'
 
-const HERO_DESKTOP = { src: '/media/hero-desktop.mp4', poster: '/media/hero-desktop.jpg' }
-const HERO_MOBILE = { src: '/media/hero-mobile.mp4', poster: '/media/hero-mobile.jpg' }
+const HERO_DESKTOP = { src: asset('media/hero-desktop.mp4'), poster: asset('media/hero-desktop.jpg') }
+const HERO_MOBILE = { src: asset('media/hero-mobile.mp4'), poster: asset('media/hero-mobile.jpg') }
 
 // The intro plays once per browser session and never with reduced motion.
 const shouldPlayIntro = () => {
@@ -163,7 +164,7 @@ export default function App() {
           {...shared}
         />
 
-        <Banner video="/media/banner.mp4" poster="/media/banner.jpg" />
+        <Banner video={asset('media/banner.mp4')} poster={asset('media/banner.jpg')} />
 
         <ProductShowcase
           id="all-products"

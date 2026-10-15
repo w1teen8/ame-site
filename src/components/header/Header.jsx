@@ -239,7 +239,7 @@ export default function Header({
 
           {/* Centre — wordmark. Negative right margin cancels the trailing letter-space so it stays centred. */}
           <motion.a
-            href="/"
+            href={import.meta.env.BASE_URL}
             aria-label={t.home}
             initial={false}
             animate={{ scale: solid ? 0.88 : 1 }}
