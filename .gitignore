@@ -1,0 +1,4 @@
+node_modules
+dist
+# saved Instagram pages (source material, ~310 MB); site photos live in public/products
+gallery

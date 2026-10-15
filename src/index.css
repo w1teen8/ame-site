@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Âme palette */
+  --color-milk: #FAF8F5;
+  --color-ecru: #F5F2EC;
+  --color-linen: #F9F6F0;
+  --color-sand: #E8DFD8;
+  --color-blush: #EDE4DA;
+  --color-graphite: #1A1A1A;
+  --color-taupe: #6F675A;
+  --color-mist: #9A917F;
+
+  /* One family everywhere: Playfair 2 — Didone with an optical-size axis. */
+  --font-serif: "Playfair", "Times New Roman", serif;
+  --font-sans: "Playfair", "Times New Roman", serif;
+
+  --ease-couture: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    /* Playfair defaults to old-style figures (6 8oo); prices need lining ones. */
+    font-feature-settings: "lnum" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ecru font-sans text-graphite;
+  }
+  ::selection {
+    @apply bg-sand text-graphite;
+  }
+}
+
+/* Display cut for large type. opsz 200 keeps high contrast while the
+   hairline diagonals of Cyrillic и / й / н stay visible. */
+@utility font-display {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-variation-settings: "opsz" 200;
+}
+
+/* Maximum contrast, razor hairlines — only for the Latin ÂME wordmark. */
+@utility font-wordmark {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-variation-settings: "opsz" 1200;
+}
+
+/* Wordmark over footage: lower optical size + regular weight so the hairlines
+   of Â and M survive on a moving, busy background. */
+@utility font-hero {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 72;
+}
